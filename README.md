@@ -55,18 +55,25 @@ fetch(process.env.NEXT_PUBLIC_API_URL + 'api/hello')
 		console.log(result);
 	})
 ```
-
+#### **styled-components 사용하기**
+* 루트 경로에 `.babelrc`파일에 플러그인 활성화 추가
+```js
+{
+	"presets": ["next/babel"],
+	"plugins": [["styled-components", { "ssr": true }]]
+}
+```
 
 ### **에러 해결**
 Parsing error: Cannot find module 'next/babel'
-* 루트 경로에 ```.babelrc```파일 생성 후 코드 추가
+* 루트 경로에 `.babelrc`파일 생성 후 코드 추가
 ```js
 {
 	"presets": ["next/babel"],
 	"plugins": []
 }
 ```
-* 루트 경로의 ```.eslintrc.json``` 파일 수정
+* 루트 경로의 `.eslintrc.json` 파일 수정
 ```js
 {
 	"extends": ["next/babel","next/core-web-vitals"]
