@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-/* Author: JW 2022-09-30 */
+/*! Author: JW 2022-09-30. Edit: 2022-10-11 */
 @import '_font';
 $font: 'Roboto-Regular', 'NanumSquareR', sans-serif;
 $font-light: 'Roboto-Light', 'NanumSquareL', sans-serif;
@@ -19,13 +19,13 @@ li, dd	{list-style:none;}
 // ::-webkit-scrollbar	{width:4px;height:2px;background-color:rgba(255, 255, 255, 0.05);}
 // ::-webkit-scrollbar-thumb	{background-color:rgba(255, 255, 255, 1);}
 
-.next-wrap	{display:flex;flex-direction:column;min-width:320px;}
+#__next	{display:flex;flex-direction:column;min-width:320px;max-width:1440px;height:100vh;margin:0 auto;}
+.next-container	{flex:1;}
 
-//Header
-.header-wrap	{ padding:0 20px;position:sticky;top:0;
-	.header	{display:flex;justify-content:space-between;}
-	.main-tit a	{display:flex;align-items:center;height:50px;font-size:30px;color:#000;}
-	.main-tit a:after	{content:'Next.js';width:26px;height:26px;margin-left:10px;font:0/0 a;background:url("#{$logo}") no-repeat;background-size:100% 100%;}
-	.nav	{display:flex;align-items:center;gap:10px;}
-	.nav a	{font-size:14px;color:#000;}
+
+.header	{
+	.main-tit	{display:flex;align-items:center;height:60px;
+		.logo-img	{width:30px;margin:0 10px;}
+	}
 }
+.footer	{padding:20px;border-top:1px solid #000;text-align:center;}
