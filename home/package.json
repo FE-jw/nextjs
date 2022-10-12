@@ -2,13 +2,16 @@
   "name": "home",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://fe-jw.github.io/nextjs/home",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && next export && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
+    "axios": "^1.1.2",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

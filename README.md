@@ -79,3 +79,15 @@ Parsing error: Cannot find module 'next/babel'
 	"extends": ["next/babel","next/core-web-vitals"]
 }
 ```
+* useEffect 2번 실행될 때
+```js
+//next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: false,	//false로 변경
+  swcMinify: true,
+}
+
+module.exports = nextConfig
+
+```
