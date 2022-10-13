@@ -43,6 +43,28 @@ export default function handler(req, res) {
 }
 ```
 
+### **getServerSideProps**
+```js
+const productDetail = ({ item }) => {	//getServerSideProps에서 return한 props(item)를 받아올 수 있다.
+	return(
+		...
+	);
+}
+
+export const getServerSideProps = async (ctx) => {
+	const id = ctx.params.id;
+	const apiUrl = `test.json'`
+	const res = await Axios.get(apiUrl);
+	const data = res.data;
+
+	return{
+		props: {
+			item: data
+		}
+	};
+}
+```
+
 ### **환경변수**
 접근 가능한 변수는 접두어 'NEXT_PUBLIC_' 붙인다.
 ```
@@ -54,14 +76,6 @@ fetch(process.env.NEXT_PUBLIC_API_URL + 'api/hello')
 	.then(result => {
 		console.log(result);
 	})
-```
-#### **styled-components 사용하기**
-* 루트 경로에 `.babelrc`파일에 플러그인 활성화 추가
-```js
-{
-	"presets": ["next/babel"],
-	"plugins": [["styled-components", { "ssr": true }]]
-}
 ```
 
 ### **에러 해결**
