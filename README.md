@@ -105,3 +105,33 @@ const nextConfig = {
 module.exports = nextConfig
 
 ```
+
+### **에러 페이지**
+* 404
+	* pages/ 경로에 404.js 생성
+	```jsx
+	const Error404 = () => {
+		return (
+			<div>
+				404 에러...
+			</div>
+		);
+	}
+
+	export default Error404;
+	```
+* 500(서버 에러)
+	* pages/ 경로에 _error.js 생성
+	```jsx
+	const _error = ({ statusCode }) => {
+		console.log(statusCode);
+		
+		return (
+			<div>
+				500 server error
+			</div>
+		);
+	}
+
+	export default _error;
+	```

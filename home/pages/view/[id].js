@@ -5,7 +5,7 @@ import Axios from 'axios';
 import Item from '../../src/component/Item';
 import { Loader } from 'semantic-ui-react';
 
-const productDetail = ({ item }) => {	//getServerSideProps에서 return한 item을 받아올 수 있다.
+const productDetail = ({ item, name }) => {	//getServerSideProps에서 return한 item을 받아올 수 있다.
 	// const router = useRouter();	//서버사이드렌더링을 적용해서 필요없어짐
 	// const id = Number(router.query.id);
 
@@ -55,6 +55,7 @@ const productDetail = ({ item }) => {	//getServerSideProps에서 return한 item�
 							<title>{item.name}</title>
 							<meta name='description' content={item.description}></meta>
 						</Head>
+						{name} 환경입니다.
 						<Item item={item} />
 					</>
 				)
@@ -65,13 +66,14 @@ const productDetail = ({ item }) => {	//getServerSideProps에서 return한 item�
 
 export const getServerSideProps = async (ctx) => {
 	const id = ctx.params.id;
-	const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?brand=maybelline'`
+	const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
 	const res = await Axios.get(apiUrl);
 	const data = res.data;
 
 	return {
 		props:{
-			item: data
+			item: data,
+			name: process.env.name
 		}
 	}
 }
